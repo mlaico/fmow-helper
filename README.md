@@ -2,7 +2,8 @@
 
 These are my notes on getting started with fMoW.
 
-- Most of this info is from the fMoW paper: [arxiv:1711.07846](https://arxiv.org/abs/1711.07846)- For download instructions see the [github.com/fMoW/dataset#download](https://github.com/fMoW/dataset#download)
+- Most of this info is from the fMoW paper: [arxiv:1711.07846](https://arxiv.org/abs/1711.07846)
+- For download instructions see the [github.com/fMoW/dataset#download](https://github.com/fMoW/dataset#download)
 - For citing fMoW see [github.com/fMoW/dataset#references](https://github.com/fMoW/dataset#references)
 
 ### Folder structure
@@ -78,7 +79,7 @@ Notice that there are 4 files for each location: two types of images, each with 
     > [img src: Maxar blog post on MSI](https://blog.maxar.com/earth-intelligence/2017/uncovering-hidden-intelligence-with-multispectral-imagery)
 
     > Here is the msrgb image `airport_0_0_msrgb.jpg`:
-    > ![airport_0_0_msrgb.jpg](../images/airport_0_0_msrgb.jpg)
+    > ![airport_0_0_msrgb.jpg](images/airport_0_0_msrgb.jpg)
 
  - **rgb**: This format combines the rgb data with a *panchromatic* image (i.e. single-channel a.k.a grayscale) that was taken simultaneously at a much higher resolution. The merging of the two resolutions happens through an image processing technique called *pan-sharpening*.  The result is a high-res, color image
 
@@ -86,7 +87,7 @@ Notice that there are 4 files for each location: two types of images, each with 
     > [img src: Maxar blog post on MSI](https://blog.maxar.com/earth-intelligence/2017/uncovering-hidden-intelligence-with-multispectral-imagery)
 
     > Here is the *pan-sharpened* rgb image `airport_0_0_rgb.jpg`:
-    > ![airport_0_0_rgb.jpg](../images/airport_0_0_rgb.jpg)
+    > ![airport_0_0_rgb.jpg](images/airport_0_0_rgb.jpg)
 
     > - In terms of visual appearance, can see that the pan-sharpening process yields a sharper image with less saturated colors.
     > - The big difference is the resolution (image size).  This pan-sharpened rgb image is 8200 x 6312 pixels, whereas the msrgb image is 2050 x 1578
@@ -98,7 +99,7 @@ Notice that there are 4 files for each location: two types of images, each with 
 
 As mentioned above, each location in each class has multiple images taken at different times.  The fMoW paper refers to these as "temporal views".  To answer the question, "how many temporal views does each location (area) have?", the paper provides a plot of the distribution:
 
-![num_temporal_views.png](../images/num_temporal_views.png)
+![num_temporal_views.png](images/num_temporal_views.png)
 
 Looking at this, we could say most of the dataset has 5 or less views.  It is noted in the paper that the max number of views for any single area is 41.
 
@@ -106,7 +107,7 @@ Looking at this, we could say most of the dataset has 5 or less views.  It is no
 
 The total instances per class are unevenly distributed:
 
-![num_instances.png](../images/num_instances.png)
+![num_instances.png](images/num_instances.png)
 
 - The above fig includes temporal views of the same area
 - Don't mind the red/green bars, unless you're working with the 4- or 8-channel multispectral imagery.
