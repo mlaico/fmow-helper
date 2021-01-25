@@ -6,6 +6,14 @@ These are my notes on getting started with fMoW.
 - For download instructions see the [github.com/fMoW/dataset#download](https://github.com/fMoW/dataset#download)
 - For citing fMoW see [github.com/fMoW/dataset#references](https://github.com/fMoW/dataset#references)
 
+## Quick start
+
+For an easy `ImageFolder`-compatible version of fMoW, use the [create_msrgb_imagefolder.py](https://github.com/mlaico/fmow-helper/blob/main/scripts/create_msrgb_imagefolder.py) script:
+
+```txt
+python create_msrgb_imagefolder.py --data_dir <path_to_fmow> --dst_dir <path_to_new_dst>
+```
+
 ### Folder structure
 
 The fMoW folder structure almost adheres to the PyTorch `ImageFolder` format, but not quite.  Within each class folder there are subfolders that each correspond to a particular location - as in, a location on the Earth where a structure/facility of the respective category is present. Each of these subfolders holds many images and metadata for its particular location taken at different times e.g. ~months apart.  The overall folder structure is depicted below:
@@ -53,7 +61,7 @@ fMoW
      |         |           |-- airport_462
 ```
 
-Within the first location, `airport_0`, we see that there are 8 locations (0 ... 7):
+Within the first location, `airport_0`, we see that there are 8 *temporal views* (0 ... 7):
 
 ```txt
 |-- airport
@@ -71,7 +79,7 @@ Within the first location, `airport_0`, we see that there are 8 locations (0 ...
                           |-- airport_0_7_rgb.json
 ```
 
-Notice that there are 4 files for each location: two types of images, each with a dedicated json metadata file.  Let's start with the two image types `msrgb` and `rgb`:
+Notice that there are 4 files for each view: two types of images, each with a dedicated json metadata file.  Let's start with the two image types `msrgb` and `rgb`:
 
  - **msrgb**: This format results from extracting the *red*, *green*, and *blue* channels from a multispectral (ms) image which originally contained either 4 or 8 channels in total. The extra channels correspond to different wavelengths of light both in the visible spectrum and "near-infrared" (NIR):
 
@@ -89,7 +97,7 @@ Notice that there are 4 files for each location: two types of images, each with 
     > Here is the *pan-sharpened* rgb image `airport_0_0_rgb.jpg`:
     > ![airport_0_0_rgb.jpg](images/airport_0_0_rgb.jpg)
 
-    > - In terms of visual appearance, can see that the pan-sharpening process yields a sharper image with less saturated colors.
+    > - In terms of visual appearance, we can see that the pan-sharpening process yields a sharper image with less saturated colors.
     > - The big difference is the resolution (image size).  This pan-sharpened rgb image is 8200 x 6312 pixels, whereas the msrgb image is 2050 x 1578
 
 
