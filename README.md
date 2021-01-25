@@ -13,6 +13,14 @@ For an easy `ImageFolder`-compatible version of fMoW, use the [create_msrgb_imag
 ```txt
 python create_msrgb_imagefolder.py --data_dir <path_to_fmow> --dst_dir <path_to_new_dst>
 ```
+This version has the following stats:
+```txt
+Num train images: 363572
+Num val images: 53040
+
+Pixel mean:  tensor([0.3791, 0.3804, 0.3546])
+Pixel std:  tensor([0.2622, 0.2549, 0.2561])
+```
 
 ### Folder structure
 
